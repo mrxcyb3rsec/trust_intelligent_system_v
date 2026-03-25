@@ -1,0 +1,169 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ================= ANIMATED BACKGROUND ================= */
+body {
+  background: linear-gradient(-45deg, #001f1f, #003333, #001111, #000000);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  min-height: 100vh;
+  color: #0ff;
+  transition: all 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* 🌈 Background animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================= FLOATING NEON BLOBS ================= */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+  opacity: 0.7;
+}
+
+body::before {
+  background: #00ffff;
+  top: 5%;
+  left: 10%;
+}
+
+body::after {
+  background: #ff00ff;
+  bottom: 5%;
+  right: 10%;
+}
+
+/* ================= TITLE (NEON GRADIENT) ================= */
+h2 {
+  text-align: center;
+  font-weight: 900;
+  font-size: 32px;
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px #00ffff, 0 0 16px #ff00ff;
+}
+
+/* ================= GLASS CARD ================= */
+.card, .app-card {
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 15px 0;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 10px 25px rgba(0,255,255,0.1), 0 0 15px rgba(255,0,255,0.05);
+  transition: all 0.35s ease;
+}
+
+.card:hover, .app-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0,255,255,0.3), 0 0 30px rgba(255,0,255,0.2);
+}
+
+/* ================= TRUST + RISK ================= */
+#score {
+  font-size: 40px;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+#risk {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* ================= STATUS COLORS ================= */
+.text-success { color: #22c55e !important; text-shadow: 0 0 6px #22c55e; }
+.text-warning { color: #f59e0b !important; text-shadow: 0 0 6px #f59e0b; }
+.text-danger { color: #ef4444 !important; text-shadow: 0 0 6px #ef4444; }
+
+/* ================= ALERT ================= */
+.alert {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 5px solid #ef4444;
+  border-radius: 10px;
+  color: #fff;
+  animation: fadeIn 0.5s ease, glow 1.5s ease-in-out infinite alternate;
+}
+
+/* ================= ALERT GLOW ================= */
+@keyframes glow {
+  from { box-shadow: 0 0 5px #ff0040; }
+  to { box-shadow: 0 0 15px #ff0040; }
+}
+
+/* ================= LIST ================= */
+.list-group-item {
+  background: rgba(0,0,0,0.55) !important;
+  border-radius: 12px;
+  margin-bottom: 6px;
+  color: #0ff;
+  text-shadow: 0 0 4px #0ff;
+}
+
+/* ================= BUTTONS ================= */
+button {
+  border-radius: 12px !important;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  background: rgba(255,255,255,0.1);
+  color: #0ff;
+  border: 1px solid rgba(0,255,255,0.5);
+  text-shadow: 0 0 4px #0ff;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px #0ff, 0 0 24px #ff00ff;
+}
+
+/* ================= INPUT ================= */
+input {
+  background: rgba(0,0,0,0.4) !important;
+  border: 1px solid rgba(0,255,255,0.3) !important;
+  color: #0ff !important;
+  text-shadow: 0 0 3px #0ff;
+}
+
+/* ================= FADE ================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= STATUS MODES ================= */
+body.safe {
+  filter: hue-rotate(120deg) brightness(1.05);
+}
+
+body.warning {
+  filter: hue-rotate(40deg) brightness(1.05);
+}
+
+body.danger {
+  filter: hue-rotate(0deg) brightness(1.1);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  #score { font-size: 28px; }
+  #risk { font-size: 22px; }
+}
